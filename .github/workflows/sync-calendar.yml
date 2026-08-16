@@ -1,0 +1,29 @@
+name: Sync Airbnb availability
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch iCal and build availability.json
+        env:
+          AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_URL }}
+        run: |
+          python3 scripts/sync_ical.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "calendar-bot"
+          git config user.email "actions@github.com"
+          git add data/availability.json
+          git diff --cached --quiet || git commit -m "Update availability from Airbnb iCal"
+          git push
