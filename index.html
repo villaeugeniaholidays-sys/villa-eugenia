@@ -57,13 +57,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
 .brand{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--sea-deep);letter-spacing:.04em}
 .brand b{font-weight:600}
-.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links{display:flex;gap:18px;align-items:center}
 .nav-links a{font-size:.82rem;letter-spacing:.06em;color:var(--ink);font-weight:400}
 .nav-links a:hover{color:var(--sea)}
 .lang-toggle{display:flex;border:1px solid rgba(21,63,78,.25);border-radius:20px;overflow:hidden;font-size:.72rem}
 .lang-toggle button{border:0;background:transparent;padding:5px 12px;cursor:pointer;font-family:inherit;color:var(--ink-soft);font-weight:500}
 .lang-toggle button.active{background:var(--sea);color:#fff}
-.btn{display:inline-block;padding:13px 28px;border-radius:30px;font-size:.82rem;letter-spacing:.08em;font-weight:500;transition:.25s;cursor:pointer;border:0;font-family:'Inter',sans-serif}
+.btn{display:inline-block;padding:13px 28px;border-radius:30px;font-size:.82rem;letter-spacing:.08em;font-weight:500;transition:.25s;cursor:pointer;border:0;font-family:'Inter',sans-serif;white-space:nowrap}
 .btn-primary{background:var(--sea);color:#fff}
 .btn-primary:hover{background:var(--sea-deep);color:#fff;transform:translateY(-1px)}
 .btn-ghost{border:1px solid rgba(255,255,255,.75);color:#fff}
@@ -76,7 +76,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,
 /* HERO */
 .hero{position:relative;height:100vh;min-height:620px;display:flex;align-items:flex-end}
 .hero::before{content:"";position:absolute;inset:0;background:url('photos/hero.jpg') center/cover no-repeat}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,63,78,.18) 0%,rgba(21,63,78,.05) 40%,rgba(15,40,52,.72) 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,63,78,.22) 0%,rgba(21,63,78,.06) 35%,rgba(15,40,52,.55) 72%,rgba(15,40,52,.85) 100%)}
 .hero-content{position:relative;z-index:2;color:#fff;padding-bottom:90px;width:100%}
 .hero .eyebrow{color:#e9d5ae}
 .hero h1{font-size:clamp(2.6rem,6.5vw,4.6rem);line-height:1.08;margin-bottom:16px;font-weight:500}
@@ -246,6 +246,7 @@ footer{background:#0f2834;color:rgba(255,255,255,.55);padding:34px 0;font-size:.
         <button id="btnIT" onclick="setLang('it')">IT</button>
       </div>
       <a class="btn btn-primary nav-book" href="https://www.airbnb.com.sg/rooms/1214824759754373156" target="_blank" rel="noopener" data-i18n="nav_book">Book on Airbnb</a>
+      <a class="btn btn-outline nav-book book-direct" href="#contact" data-i18n="nav_direct">Book directly</a>
     </div>
     <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
   </div>
@@ -379,7 +380,7 @@ footer{background:#0f2834;color:rgba(255,255,255,.55);padding:34px 0;font-size:.
       <div class="cal-note" id="calNote"></div>
       <div class="cal-cta">
         <a class="btn btn-primary" href="https://www.airbnb.com.sg/rooms/1214824759754373156" target="_blank" rel="noopener" data-i18n="av_cta1">Book on Airbnb</a>
-        <a class="btn btn-outline" href="#contact" data-i18n="av_cta2">Send an enquiry</a>
+        <a class="btn btn-outline book-direct" href="#contact" data-i18n="av_cta2">Send an enquiry</a>
       </div>
     </div>
   </div>
@@ -478,6 +479,7 @@ en:{},
 it:{
   nav_villa:"La Villa", nav_gallery:"Galleria", nav_amenities:"Servizi", nav_availability:"Disponibilità",
   nav_reviews:"Recensioni", nav_location:"Posizione", nav_contact:"Contatti", nav_book:"Prenota su Airbnb",
+  nav_direct:"Prenota direttamente",
   badge_sub:"17 recensioni · Superhost",
   hero_eyebrow:"Santa Margherita di Pula · Sardegna",
   hero_title:"Una villa sul mare, tra i pini",
@@ -698,6 +700,11 @@ function renderQuotes(){
 fetch('data/reviews.json?v='+Date.now()).then(r=>r.json()).then(j=>{QUOTES=j.reviews||[];renderQuotes();}).catch(()=>renderQuotes());
 
 /* ---------- Form ---------- */
+/* "Book directly" — scroll to the enquiry form and put the cursor in it */
+document.querySelectorAll('.book-direct').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.remove('open');
+  setTimeout(()=>document.getElementById('fname').focus({preventScroll:true}),700);
+}));
 document.getElementById('enquiryForm').addEventListener('submit',function(e){
   e.preventDefault();
   const btn=document.getElementById('submitBtn'), st=document.getElementById('formStatus');
