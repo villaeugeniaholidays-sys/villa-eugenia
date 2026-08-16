@@ -1,0 +1,4 @@
+{
+  "_comment": "Add real Airbnb reviews here to show quote cards on the site. Each review: {\"name\": \"Anna\", \"date\": \"July 2026\", \"text\": \"...\"}. Leave the list empty to hide the section.",
+  "reviews": []
+}
