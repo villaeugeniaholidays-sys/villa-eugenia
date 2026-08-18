@@ -3,12 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Villa Eugenia — Beachside Villa in Santa Margherita di Pula, Sardinia</title>
+<title>Villa Eugenia — Beachside Villa in La Perla Marina, Santa Margherita di Pula, Sardinia</title>
 <meta name="description" content="Recently renovated 4-bedroom beachside villa in the gated La Perla Marina community, Santa Margherita di Pula, Sardinia. 300 m from a quiet, secluded beach. Sleeps 8. Superhost, 5.0★ rated.">
-<meta property="og:title" content="Villa Eugenia — Beachside Villa in Sardinia">
+<meta property="og:title" content="Villa Eugenia, La Perla Marina — Beachside Villa in Sardinia">
 <meta property="og:description" content="4 bedrooms · 4 bathrooms · 8 guests · 300 m from a quiet, secluded beach in Santa Margherita di Pula, Sardinia.">
-<meta property="og:image" content="photos/hero.jpg">
+<meta property="og:image" content="https://www.villaeugeniasardinia.com/photos/hero.jpg">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://www.villaeugeniasardinia.com/">
+<meta property="og:site_name" content="Villa Eugenia — La Perla Marina">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.villaeugeniasardinia.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#153f4e">
+<link rel="preload" as="image" href="photos/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,6 +26,10 @@
   "@context": "https://schema.org",
   "@type": "VacationRental",
   "name": "Villa Eugenia",
+  "alternateName": "Villa Eugenia — La Perla Marina",
+  "url": "https://www.villaeugeniasardinia.com/",
+  "image": "https://www.villaeugeniasardinia.com/photos/hero.jpg",
+  "sameAs": ["https://www.airbnb.com/rooms/1214824759754373156"],
   "description": "Recently renovated beachside villa in the gated La Perla Marina community, 300 m from a quiet, secluded beach. 4 bedrooms, 4 bathrooms, sleeps 8.",
   "address": {
     "@type": "PostalAddress",
@@ -55,8 +68,9 @@ h2{font-size:clamp(2rem,4vw,2.9rem);color:var(--sea-deep);margin-bottom:18px;lin
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(21,63,78,.08);transition:.3s}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-.brand{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--sea-deep);letter-spacing:.04em}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--sea-deep);letter-spacing:.04em;line-height:1.05}
 .brand b{font-weight:600}
+.brand-sub{display:block;font-family:'Inter',sans-serif;font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:2px}
 .nav-links{display:flex;gap:18px;align-items:center}
 .nav-links a{font-size:.82rem;letter-spacing:.06em;color:var(--ink);font-weight:400}
 .nav-links a:hover{color:var(--sea)}
@@ -232,7 +246,7 @@ footer{background:#0f2834;color:rgba(255,255,255,.55);padding:34px 0;font-size:.
 
 <nav>
   <div class="wrap nav-inner">
-    <div class="brand">Villa <b>Eugenia</b></div>
+    <div class="brand">Villa <b>Eugenia</b><span class="brand-sub">La Perla Marina</span></div>
     <div class="nav-links" id="navLinks">
       <a href="#villa" data-i18n="nav_villa">The Villa</a>
       <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
@@ -259,7 +273,7 @@ footer{background:#0f2834;color:rgba(255,255,255,.55);padding:34px 0;font-size:.
     <div class="sub" data-i18n="badge_sub">17 reviews · Superhost</div>
   </div>
   <div class="wrap hero-content">
-    <div class="eyebrow" data-i18n="hero_eyebrow">Santa Margherita di Pula · Sardinia</div>
+    <div class="eyebrow" data-i18n="hero_eyebrow">La Perla Marina · Santa Margherita di Pula · Sardinia</div>
     <h1 data-i18n="hero_title">A beachside villa among the pines</h1>
     <p data-i18n="hero_sub">Fully renovated in 2024 and set within the gated La Perla Marina community, just 300 metres from a quiet, secluded beach with crystal-clear water.</p>
     <div class="hero-ctas">
@@ -468,7 +482,7 @@ footer{background:#0f2834;color:rgba(255,255,255,.55);padding:34px 0;font-size:.
 
 <footer>
   <div class="wrap foot">
-    <div>© <span id="year"></span> Villa Eugenia · Santa Margherita di Pula, Sardegna</div>
+    <div>© <span id="year"></span> Villa Eugenia · La Perla Marina · Santa Margherita di Pula, Sardegna</div>
     <div data-i18n="foot_reg">National registration (CIN): IT092050C2000S2986</div>
   </div>
 </footer>
@@ -482,7 +496,7 @@ it:{
   nav_reviews:"Recensioni", nav_location:"Posizione", nav_contact:"Contatti", nav_book:"Prenota su Airbnb",
   nav_direct:"Prenota direttamente",
   badge_sub:"17 recensioni · Superhost",
-  hero_eyebrow:"Santa Margherita di Pula · Sardegna",
+  hero_eyebrow:"La Perla Marina · Santa Margherita di Pula · Sardegna",
   hero_title:"Una villa sul mare, tra i pini",
   hero_sub:"Completamente ristrutturata nel 2024, all'interno del comprensorio privato La Perla Marina, a soli 300 metri da una spiaggia tranquilla e appartata dall'acqua cristallina.",
   hero_cta1:"Verifica disponibilità", hero_cta2:"Scopri la villa",
